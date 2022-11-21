@@ -4,7 +4,7 @@ RUN pip3 install mysql-connector-python
 
 RUN mkdir /insert
 
-COPY insert_data.py /insert/
+COPY ephemeral/insert_data.py /insert/
 
 RUN chmod +x /insert/insert_data.py
 
