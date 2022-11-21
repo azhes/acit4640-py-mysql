@@ -5,7 +5,7 @@ RUN apt-get install -y default-libmysqlclient-dev
 RUN apt-get install -y default-mysql-client
 RUN apt-get install -y gettext-base
 
-COPY app /app
+COPY backend/app /app
 
 RUN useradd -m -d /backend backend
 
