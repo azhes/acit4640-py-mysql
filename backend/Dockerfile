@@ -19,7 +19,7 @@ RUN pip3 install --user -r /backend/src/requirements.txt
 
 RUN pip3 install mysql-connector-python
 
-COPY app/backend.conf.template /backend/src/
+COPY backend/app/backend.conf.template /backend/src/
 
 WORKDIR /backend/src/
 
