@@ -21,6 +21,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: /frontend
+          file: frontend/Dockerfile
           push: true
           tags: agraystone/week11frontend:latest
