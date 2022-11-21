@@ -31,3 +31,10 @@ jobs:
           file: backend/Dockerfile
           push: true
           tags: agraystone/week11backend:latest
+      -
+        name: Build and push ephemeral
+        uses: docker/build-push-action@v3
+        with:
+          file: ephemeral/Dockerfile
+          push: true
+          tags: agraystone/week11ephemeral:latest
