@@ -33,4 +33,4 @@ ENV FLASK_RUN_HOST=0.0.0.0
 
 ENTRYPOINT [ "/bin/bash", "-c" ]
 
-CMD ["envsubst < backend.conf.template > backend.conf;./wait-for-it.sh database1:3306 -s --timeout=100; python3 -m flask run"]
+CMD ["envsubst < backend.conf.template > backend.conf;./wait-for-it.sh database:3306 -s --timeout=100; python3 -m flask run"]
