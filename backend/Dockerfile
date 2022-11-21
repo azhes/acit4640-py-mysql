@@ -3,6 +3,7 @@ FROM python:3
 RUN apt-get update -qy && apt-get install -y wait-for-it
 RUN apt-get install -y default-libmysqlclient-dev
 RUN apt-get install -y default-mysql-client
+RUN apt-get install -y gettext-base
 
 COPY app /app
 
@@ -18,7 +19,7 @@ RUN pip3 install --user -r /backend/src/requirements.txt
 
 RUN pip3 install mysql-connector-python
 
-COPY app/backend.conf /backend/src/
+COPY app/backend.conf.template /backend/src/
 
 WORKDIR /backend/src/
 
@@ -32,4 +33,4 @@ ENV FLASK_RUN_HOST=0.0.0.0
 
 ENTRYPOINT [ "/bin/bash", "-c" ]
 
-CMD ["envsubst < backend.conf.template > backend.conf;./wait-for-it.sh database:3306 -s --timeout=100; python3 -m flask run"]
+CMD ["envsubst < backend.conf.template > backend.conf;./wait-for-it.sh database1:3306 -s --timeout=100; python3 -m flask run"]
